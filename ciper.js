@@ -36,7 +36,7 @@ function cipher_encode(text) {
     let output = ''
     text.split('').forEach(c => {
         const key = cipherKey.find(x => x[0] == c)
-
+        // ANGEL pifuh suj tyjwum. "Na jihuh dopp mufuj dopg, gsua dopp mufuj puyfu." Hsu hyah gi nu.
         if (key == undefined) output += c
         else output += key[1]
     });
