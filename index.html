@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulox Cipher</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="./ciper.js" defer></script>
+</head>
+
+<body>
+    <h1>Ulox Cipher</h1>
+
+    <div>
+        <h2>Input</h2>
+        <span class="input-group">
+            <input id='encode-toggle' type="checkbox" />
+            <label for="encode-toggle">Encode</label>
+        </span>
+        <textarea id="text-input"></textarea>
+    </div>
+
+    <div>
+        <h2>Output</h2>
+        <span id="action-buttons">
+            <button id='copy-button'>📋 Copy</button>
+            <button id='swap-button'>🔄 Swap</button>
+        </span>
+        <textarea id="text-output" disabled></textarea>
+    </div>
+
+    <script>
+        const textInput = document.querySelector('#text-input')
+        const textOutput = document.querySelector('#text-output')
+        const encodeToggle = document.querySelector('#encode-toggle')
+        const copyButton = document.querySelector('#copy-button')
+        const swapButton = document.querySelector('#swap-button')
+
+        function runCipher() {
+            const text = textInput.value
+            const encode = encodeToggle.value
+
+            if (encode) {
+                textOutput.value = cipher_decode(text)
+            } else {
+                textOutput.value = cipher_decode(text)
+            }
+        }
+
+        function copyOutput() {
+            const text = textOutput.value
+
+            navigator.clipboard.writeText(text);
+        }
+
+        function swapText() {
+            textInput.value = textOutput.value
+            runCipher()
+        }
+
+        textInput.addEventListener('input', runCipher)
+        encodeToggle.addEventListener('change', runCipher)
+        swapButton.addEventListener('click', swapText)
+        copyButton.addEventListener('click', copyOutput)
+    </script>
+</body>
+
+</html>
+
+<!-- blah blah blah -->
